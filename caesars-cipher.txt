@@ -1,0 +1,21 @@
+function rot13(str) {
+  str = str.split("");
+  str = str.map(char => {
+    let unicode = char.charCodeAt()
+    if(unicode >= 65 && unicode <= 90){
+      if(unicode < 78){
+        unicode = (unicode - 65) + 78
+      } else {
+        unicode -= 13;
+      }
+    }
+    return String.fromCharCode(unicode);
+  })
+  str = str.join("");
+  return str;
+}
+
+rot13("SERR PBQR PNZC");
+rot13("SERR CVMMN!")
+rot13("SERR YBIR?")
+rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.")

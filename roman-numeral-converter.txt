@@ -1,0 +1,68 @@
+function convertToRoman(num) {
+  let romanNumber = '';
+
+  if(num >= 1000){
+    let thousands = Math.floor(num / 1000);
+    romanNumber = 'M'.repeat(thousands)
+    num %= 1000
+  }
+
+  let hundreds = Math.floor(num / 100);
+  num %= 100;
+  if(hundreds <= 3){
+    romanNumber += 'C'.repeat(hundreds)
+  } else if(hundreds > 3 && hundreds <= 8){
+      if(Math.floor(hundreds / 5) == 1){
+        //500 a 800
+        romanNumber+= 'D'
+        romanNumber+= 'C'.repeat(hundreds % 5);
+      } else {
+        // 400
+        romanNumber+= 'CD'
+      }
+  } else {
+    // 900
+    romanNumber+= 'CM'
+  }
+
+  let tens = Math.floor(num / 10);
+  num %= 10;
+  if(tens <= 3){
+    // 10 a 30
+    romanNumber += 'X'.repeat(tens)
+  } else if(tens > 3 && tens <= 8){
+      if(Math.floor(tens / 5) == 1){
+        //50 a 80
+        romanNumber+= 'L'
+        romanNumber+= 'X'.repeat(tens % 5);
+      } else {
+        // 40
+        romanNumber+= 'XL'
+      }
+  } else {
+    // 90
+    romanNumber += 'XC'
+  }
+
+  if(num <= 3){
+    // 1 a 3
+    romanNumber += 'I'.repeat(num)
+  } else if(num > 3 && num <= 8){
+      if(Math.floor(num / 5) == 1){
+        //5 a 8
+        romanNumber+= 'V'
+        romanNumber+= 'I'.repeat(num % 5);
+      } else {
+        // 4
+        romanNumber+= 'IV'
+      }
+  } else {
+    // 9
+    romanNumber+= 'IX'
+  }
+
+  console.log(romanNumber)
+  return romanNumber;
+}
+
+convertToRoman(2799);

@@ -1,0 +1,24 @@
+function telephoneCheck(str) {
+  if(str.match(/^[0-9]{10}$/)){
+      return true;
+    }
+
+  if(str.match(/(?<one>^[1])/)){
+    if(
+      /^[1]\s\d{3}(-|\s)\d{3}(-|\s)\d{4}/.test(str) || 
+      /^[1]\s?\(\d{3}\)\s?\d{3}-\d{4}/.test(str)
+    ){
+      return true
+    } 
+  } else {
+    if(
+      /^[\d]{3}(\s|-)\d{3}(\s|-)\d{4}/.test(str) || 
+      /^[\(]\d{3}\)\s?\d{3}-\d{4}/.test(str)
+    ){
+      return true
+    } 
+  }
+  return false
+}
+
+telephoneCheck("5555555555")
