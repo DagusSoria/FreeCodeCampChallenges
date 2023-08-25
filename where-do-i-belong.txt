@@ -1,0 +1,33 @@
+function getIndexToIns(arr, num) {
+  if(arr.length == 0){
+    num = 0;
+  }
+
+  console.log("[num]: ",num);
+
+  arr = arr.sort(function(a, b){return a-b});
+
+  for (let i = 0; i < arr.length; i++){
+    console.log(arr[i])
+    if(arr[i] == num){
+      return num = i;
+    }
+
+    if(num < arr[i]){
+      return num = i;
+    }
+    
+    if(num > arr[arr.length - 1]){
+      return num = arr.length;
+    }
+  }
+
+  console.log("[num]: ",num);
+  console.log("[arr]: ", arr);
+  return num;
+}
+
+getIndexToIns([40, 60], 50);
+//getIndexToIns([2, 20, 10], 19)
+//getIndexToIns([2, 5, 10], 15)
+//getIndexToIns([5, 3, 20, 3], 5)

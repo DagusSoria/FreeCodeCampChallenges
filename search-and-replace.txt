@@ -1,0 +1,25 @@
+function myReplace(str, before, after) {
+  str = str.split(before)
+  if(before.match(/^[A-Z]/)){
+    //mayusculas
+    after = after.split("");
+    after[0] = after[0].toUpperCase();
+    after = after.join("");
+    str = str.join(after);
+  } else if(before.match(/[^A-Z]/)) {
+    //minusculas
+    after = after.split("");
+    after[0] = after[0].toLowerCase();
+    after = after.join("");
+    str = str.join(after)
+  } else {
+    str = str.join(after)
+  }
+  
+  //str = str.split(before).join(after)
+
+  return str;
+}
+
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+myReplace("He is Sleeping on the couch", "Sleeping", "sitting")

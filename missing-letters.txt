@@ -1,0 +1,26 @@
+function fearNotLetter(str) {
+
+  let array = str.split("");
+  array = array.map(char => char = char.charCodeAt());
+  
+  let previous = array[0];
+  let flag = false;
+
+  for(let i = 1; i < array.length; i++){
+    let current = array[i];
+    if((current - 2) == previous){
+      let missing = array[i]-1;
+      console.log(missing);
+      flag = true;
+      str = String.fromCharCode(missing)
+    }
+    previous = array[i];
+  }
+  if(!flag){
+    return undefined
+  }
+
+  return str;
+}
+
+fearNotLetter("abce");
